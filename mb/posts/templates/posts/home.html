@@ -1,0 +1,7 @@
+<h1> hello world </h1>
+<ul>
+    {% for post in all_posts_list %}
+    <h1> {{post.title}} </h1>
+    <li>{{ post.text }}</li>
+    {% endfor %}
+</ul>
