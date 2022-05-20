@@ -1,0 +1,43 @@
+h1 a{
+    text-decoration: none;
+    color: red;
+
+}
+
+header {
+    border-bottom: ǐpx solid #999;
+    margin-bottom: Ǒrem;
+    display: flex;
+    }
+
+.nav-left {
+    margin-right: auto;
+}
+        
+nav-right {
+    display: flex;
+    padding-top: Ǒrem;
+    }
+
+nav-right {
+    display: flex;
+    padding-top: Ǒrem;
+    }
+    
+post-entry h2 {
+    margin: Ǐ0.5rem 0;
+    }
+    .post-entry h2 a,
+    .post-entry h2 a:visited {
+    color: blue;
+    text-decoration: none;
+    }
+
+.post-entry p {
+    margin: Ǐ;
+    font-weight: ǓǏǏ;
+}
+.post-entry h2 a:hover {
+    color: red;
+    }        
+    
