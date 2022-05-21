@@ -6,3 +6,5 @@ currently following this book --- Django for Beginners by--Django for Beginners
 Project4:- Mb ---MessageBoardapp 
 
 Project5:- Blog  ---A Blogging website
+
+Project6 :- Office_emp_proj   ---An office Managment software
