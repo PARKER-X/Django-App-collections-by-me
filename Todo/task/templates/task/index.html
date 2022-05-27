@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    h1{
+        text-align: center;
+        padding-top: 2rem;
+    }
+
+    h1, p:hover{
+        color: crimson;
+    }
+    a{
+        list-style: none;
+        text-decoration: none;
+    }
+    .container{
+        text-align: center;
+        padding-top: 2vh;
+        border: aqua;
+        border-radius: 2px solid aqua;
+        
+    }
+</style>
+
+
+<body>
+
+    
+
+    <h1>Your Task List</h1>
+    <div class="container">
+        {% for post in object_list %}
+    <p>  <a href="{% url 'detail' post.id %}"> {{post}} </a> </p>
+    {% endfor %}
+    </div>
+    <p style="text-align: center; color: blue;"><a href="{%url 'add' %}" style="color: red;"> Add More Task</a></p>
+    
+</body>
+</html>

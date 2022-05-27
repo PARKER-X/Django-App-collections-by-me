@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        text-align: center;
+        color:crimson;
+        max-width: 60vw;
+
+    }
+    table{
+        text-align: center;
+    }
+    h1{
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        list-style: none;
+    }
+</style>
+<body>
+    <h1> calorie Tracker </h1>
+    <div class="container">
+        <table>
+            <tr> 
+                <th>Food</th>
+                <th>Carbs</th>
+                <th>Protein</th>
+                <th>Calorie</th>
+                <th>fat</th>
+            </tr>
+            {% for i in object_list %}
+                    <tr>
+                    <td>{{i.name}}</td>
+                    <td> {{i.carbs}} </td>
+                    <td>{{i.protein}}</td>
+                    <td>{{i.Calorie}}</td>
+                    <td>{{i.fat}}</td>
+                    <td><a href="">Remove</a></td>
+                    
+                    </tr>
+                    
+                    {%empty%}
+                    No 
+
+                {% endfor %}
+                
+               
+               
+               <tr style="color: black;">
+                   <td>Total</td>
+                   <td>{{carbs}}</td>
+                   <td>{{protein}}</td>
+                   <td>{{Calorie}}</td>
+                   <td>{{fat}}</td>
+
+               </tr>
+               
+        </table>
+    </div>
+    <h2 style="text-align: center;"><a href="{% url 'addfood'%}">Add Items</a></h2>
+</body>
+
+</html>
