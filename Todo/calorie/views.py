@@ -20,7 +20,7 @@ def index(request):
     Calorie = FoodItem.objects.aggregate(Sum('Calorie'))
     fat = FoodItem.objects.aggregate(Sum('fat'))
     
-    return render(request, 'calorie/index.html', {'object_list':model, 'carbs':carbs,'protein':protein,'Calorie':Calorie, 'fat':fat})
+    return render(request, 'calorie/index.html', {'object_list':model, 'carbs':carbs['carbs__sum'],'protein':protein['protein__sum'],'Calorie':Calorie['calorie__sum'], 'fat':fat['fat__sum']})
 
 class FoodItemCreateView(CreateView):
     model = FoodItem
