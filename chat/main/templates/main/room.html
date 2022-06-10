@@ -1,0 +1,95 @@
+{% extends 'room/base.html' %}
+{% block content %}
+
+
+<div class="div">
+    <h1 style="text-align: center;">{{room.name}}</h1>
+  </div>
+
+<div class="div  " style="text-align: center;">
+  <div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>A well-known quote, contained in a blockquote element.</p>
+        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      Quote
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>A well-known quote, contained in a blockquote element.</p>
+        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      Quote
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>A well-known quote, contained in a blockquote element.</p>
+        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+
+
+  {% block script %}
+    {{room.slug|json_script:"json-roomname"}}
+    {{request.user.username|json_script:"json-username}}
+    <script>
+      const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
+      const chatSocket = new WebSocket(
+        'ws://'
+        + window.location.host 
+        + '/ws/'
+        + roomName
+        + "/"
+      );
+
+      chatSocket.onmessage = function(e){
+        console.log('onmessage')
+      }
+      const data = JSON.parse(e.data);
+      if (data.message){
+        <div class="card">
+    <div class="card-header">
+      Quote
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>A well-known quote, contained in a blockquote element.</p>
+        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+      }
+      chatSocket.onclose = function(e){
+        console.log('onclose')
+      }
+
+
+      document.querySelector('#chat-message-submit').onclick = function(e) {
+        const messageInputDom = document.querySelector('#chat-message-input');
+        const message = messageInputDom.value;
+
+        chatSocket.send(JSON.stringify({
+          'message':message,
+          'username':userName,
+          'room':roomName
+        }));
+      }
+    </script>
+    
+    {% endblock script %}
+
+{% endblock content %}
